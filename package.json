@@ -11,11 +11,12 @@
   ],
   "dependencies": {
     "fetch-cookie": "^0.7.3",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "@types/node-fetch": "^2.5.5"
+
   },
   "devDependencies": {
     "@types/node": "^13.9.0",
-    "@types/node-fetch": "^2.5.5",
     "@types/tough-cookie": "^2.3.6",
     "typescript": "^3.8.3"
   }
