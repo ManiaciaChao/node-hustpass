@@ -22,14 +22,14 @@ yarn add node-hustpass
 const { init } = require("node-hustpass");
 
 (async () => {
-  const { fetch, jar, login } = await init({
+  const { fetch, jar, login } = await init();
+
+  await login({
     username: "U201X12345",
     password: "QZBSQZZH",
     url:
       "https://pass.hust.edu.cn/cas/login?service=http%3A%2F%2Fhubs.hust.edu.cn%2Fhustpass.action"
   });
-
-  await login();
   /**
    * do something cool here!
    * you can simply use this `fetch` method,

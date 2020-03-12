@@ -11,22 +11,24 @@ const regex = {
   ticket: /ST-.*?-cas/
 };
 
-export interface Options {
-  username: string;
-  password: string;
-  url: string;
+interface InitalOptions {
   jar?: CookieJar;
   redirect?: boolean;
 }
+interface LoginOptions {
+  username: string;
+  password: string;
+  url: string;
+}
 
-export const init = async (options: Options) => {
-  const { username, password, url } = options;
+export const init = (options: InitalOptions = {}) => {
   const redirect = options.redirect ?? true;
   const store = new MemoryCookieStore();
   const jar = options.jar ?? new CookieJar(store);
-  const fetch = fc(nodeFetch, jar) as typeof nodeFetch;
+  const fetch = withCookie(nodeFetch, jar) as typeof nodeFetch;
 
-  const login = async () => {
+  const login = async (options: LoginOptions) => {
+    const { username, password, url } = options;
     let resp = await fetch(url);
     let html = await resp.text();
     const lt = (html.match(regex.lt) as string[])[0];
