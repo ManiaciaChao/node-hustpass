@@ -11,7 +11,7 @@ const regex = {
   ticket: /ST-.*?-cas/
 };
 
-interface InitalOptions {
+interface InitOptions {
   jar?: CookieJar;
   redirect?: boolean;
 }
@@ -21,7 +21,7 @@ interface LoginOptions {
   url: string;
 }
 
-export const init = (options: InitalOptions = {}) => {
+export const init = (options: InitOptions = {}) => {
   const redirect = options.redirect ?? true;
   const store = new MemoryCookieStore();
   const jar = options.jar ?? new CookieJar(store);
