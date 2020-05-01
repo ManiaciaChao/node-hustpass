@@ -10,6 +10,13 @@
 
 > HUSTPass auth library for Node.js. Node.js 华科统一身份认证库。
 
+## Requirement
+
+From April 30, 2020, HUSTPass requires users to input captcha when authenticating. In order to automatically recognize captcha, additional dependencies need to be installed in your devices. They are:
+
+* `ImageMagick`, you can get it from your package manager or download manually from its [offcial website](https://imagemagick.org/script/download.php).
+* `Tesseract` training data, it will be downloaded automatically the first time you run. You may need to use a proxy.
+
 ## Install
 
 ```sh

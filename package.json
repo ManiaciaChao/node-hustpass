@@ -1,6 +1,6 @@
 {
   "name": "node-hustpass",
-  "version": "1.1.3",
+  "version": "2.0.0",
   "description": "HUSTPass auth library for Node.js. Node.js 华科统一身份认证库。",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -12,9 +12,12 @@
   "dependencies": {
     "@types/node-fetch": "^2.5.5",
     "fetch-cookie": "^0.7.3",
-    "node-fetch": "^2.6.0"
+    "gm": "^1.23.1",
+    "node-fetch": "^2.6.0",
+    "tesseract.js": "^2.1.1"
   },
   "devDependencies": {
+    "@types/gm": "^1.18.7",
     "@types/node": "^13.9.0",
     "@types/tough-cookie": "^2.3.6",
     "typescript": "^3.8.3"
