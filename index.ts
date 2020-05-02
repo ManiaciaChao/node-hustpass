@@ -1,9 +1,8 @@
 import { URLSearchParams } from "url";
 import { CookieJar, MemoryCookieStore } from "tough-cookie";
 import nodeFetch from "node-fetch";
-import { des } from "./des";
+import { desEEE } from "./des";
 import { readCaptcha } from "./captcha";
-
 const withCookie = require("fetch-cookie/node-fetch");
 
 const regex = {
@@ -45,7 +44,7 @@ export const init = (options: InitOptions = {}) => {
       pl: password.length + "",
       lt,
       code,
-      rsa: des(username + password + lt, "1", "2", "3"),
+      rsa: desEEE(username + password + lt, "1", "2", "3"),
       execution: "e1s1",
       _eventId: "submit",
     };

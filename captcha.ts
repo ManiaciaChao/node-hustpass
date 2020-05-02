@@ -1,4 +1,4 @@
-import { createWorker, OEM } from "tesseract.js";
+import { createWorker, OEM, PSM } from "tesseract.js";
 import * as gm from "gm";
 
 declare module "gm" {
@@ -6,6 +6,8 @@ declare module "gm" {
     selectFrame(frame: number): this;
   }
 }
+
+const im = gm.subClass({ imageMagick: true });
 
 const processImage = (buffer: NodeJS.ReadableStream | Buffer) =>
   new Promise<Buffer>((resolve, reject) => {
@@ -21,16 +23,16 @@ const processImage = (buffer: NodeJS.ReadableStream | Buffer) =>
       });
   });
 
-const im = gm.subClass({ imageMagick: true });
-
-const worker = createWorker();
-
 export const readCaptcha = async (captcha: Buffer) => {
   const after = await processImage(captcha);
+  const worker = createWorker({
+    langPath: "https://file-1252889006.cos.ap-guangzhou.myqcloud.com/tesseract",
+  });
   await worker.load();
   await worker.loadLanguage("eng");
   await worker.initialize("eng", OEM.TESSERACT_ONLY);
   await worker.setParameters({
+    tessedit_pageseg_mode: PSM.SINGLE_LINE,
     tessedit_char_whitelist: "0123456789",
   });
   const {

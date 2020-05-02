@@ -34,7 +34,7 @@ exports.init = (options = {}) => {
             pl: password.length + "",
             lt,
             code,
-            rsa: des_1.des(username + password + lt, "1", "2", "3"),
+            rsa: des_1.desEEE(username + password + lt, "1", "2", "3"),
             execution: "e1s1",
             _eventId: "submit",
         };
