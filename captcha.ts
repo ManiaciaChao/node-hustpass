@@ -25,7 +25,9 @@ const processImage = (buffer: NodeJS.ReadableStream | Buffer) =>
 
 export const readCaptcha = async (captcha: Buffer) => {
   const after = await processImage(captcha);
-  const worker = createWorker();
+  const worker = createWorker({
+    langPath: "http://cdn.outsiders.top",
+  });
   await worker.load();
   await worker.loadLanguage("eng");
   await worker.initialize("eng", OEM.TESSERACT_ONLY);
