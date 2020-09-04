@@ -25,9 +25,7 @@ const processImage = (buffer: NodeJS.ReadableStream | Buffer) =>
 
 export const readCaptcha = async (captcha: Buffer) => {
   const after = await processImage(captcha);
-  const worker = createWorker({
-    langPath: "https://file-1252889006.cos.ap-guangzhou.myqcloud.com/tesseract",
-  });
+  const worker = createWorker();
   await worker.load();
   await worker.loadLanguage("eng");
   await worker.initialize("eng", OEM.TESSERACT_ONLY);
