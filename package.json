@@ -14,10 +14,10 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@types/node-fetch": "^2.5.5",
+    "@types/node-fetch": "^2.5.10",
     "fetch-cookie": "^0.7.3",
     "gm": "^1.23.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "tesseract.js": "^2.1.1"
   },
   "devDependencies": {
