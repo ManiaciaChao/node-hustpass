@@ -36,7 +36,7 @@ export const init = (options: InitOptions = {}) => {
     let code: boolean | string = false;
     while (!code) {
       resp = await fetch(`https://pass.hust.edu.cn/cas/code?${Math.random()}`);
-      const captcha = await resp.buffer();
+      const captcha = await resp.arrayBuffer();
       code = await recognize(captcha);
     }
     const form = {
