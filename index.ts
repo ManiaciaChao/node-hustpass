@@ -1,9 +1,9 @@
 import { URLSearchParams } from "url";
 import { CookieJar, MemoryCookieStore } from "tough-cookie";
 import nodeFetch from "node-fetch";
-import { desEEE } from "./des";
-import { readCaptcha } from "./captcha";
-const withCookie = require("fetch-cookie/node-fetch");
+import { desEEE } from "./des.js";
+import { recognize } from "./recognize.js";
+import withCookie from "fetch-cookie";
 
 const regex = {
   action: /action="(.*?)"/,
@@ -37,7 +37,7 @@ export const init = (options: InitOptions = {}) => {
     while (!code) {
       resp = await fetch(`https://pass.hust.edu.cn/cas/code?${Math.random()}`);
       const captcha = await resp.buffer();
-      code = await readCaptcha(captcha);
+      code = await recognize(captcha);
     }
     const form = {
       ul: username.length + "",

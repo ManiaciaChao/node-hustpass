@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
     "target": "es2019", // ts-node doesn't recognize "esnext"
-    "module": "commonjs",
-    "esModuleInterop": false,
+    "module": "es2020",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
     "strict": true,
     "declaration": true,
     "outDir": "dist"
+  },
+  "ts-node": {
+    "esm": true
   }
 }

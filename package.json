@@ -4,6 +4,7 @@
   "description": "HUSTPass auth library for Node.js. Node.js 华科统一身份认证库。",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
+  "type": "module",
   "author": "maniacata",
   "license": "MIT",
   "files": [
@@ -14,16 +15,19 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@types/node-fetch": "^2.5.10",
-    "fetch-cookie": "^0.7.3",
+    "fetch-cookie": "^2.0.5",
     "gm": "^1.23.1",
-    "node-fetch": "^2.6.1",
-    "tesseract.js": "^2.1.1"
+    "node-fetch": "^3.2.5",
+    "sharp": "^0.30.6",
+    "tesseract.js": "^2.1.5",
+    "tough-cookie": "^4.0.0"
   },
   "devDependencies": {
-    "@types/gm": "^1.18.7",
+    "@types/gm": "^1.18.12",
     "@types/node": "^13.9.0",
-    "@types/tough-cookie": "^2.3.6",
+    "@types/node-fetch": "^2.6.1",
+    "@types/sharp": "^0.30.2",
+    "@types/tough-cookie": "^4.0.2",
     "typescript": "^3.8.3"
   }
 }

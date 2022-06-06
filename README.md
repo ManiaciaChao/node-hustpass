@@ -12,10 +12,7 @@
 
 ## Requirement
 
-From April 30, 2020, HUSTPass requires users to input captcha when authenticating. In order to automatically recognize captcha, additional dependencies need to be installed in your devices. They are:
-
-* `ImageMagick 6`, you can get it from your package manager or download it manually from its [offcial website](https://imagemagick.org/script/download.php). Note that you should install ***ImageMagick 6*** instead of its latest version (ImageMagick 7).
-* `Tesseract` training data, it will be downloaded automatically the first time you run. You may have trouble downloading the traning data without proxy.
+None.
 
 ## Install
 
