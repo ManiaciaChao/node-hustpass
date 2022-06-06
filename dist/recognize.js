@@ -18,7 +18,8 @@ const match = (pixels, digits) => {
     }
     return scores.indexOf(Math.max(...scores));
 };
-export const recognize = async (buffer) => {
+export const recognize = async (ab) => {
+    const buffer = new Uint8Array(ab);
     const data = await sharp(buffer, { page: 1 })
         .extract({ left: 0, top: 19, width: 87, height: 20 })
         .toColourspace("b-w")

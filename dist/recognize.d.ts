@@ -1,2 +1,1 @@
-/// <reference types="node" />
-export declare const recognize: (buffer: Buffer) => Promise<string>;
+export declare const recognize: (ab: ArrayBuffer) => Promise<string>;
