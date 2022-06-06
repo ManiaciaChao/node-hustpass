@@ -1,9 +1,7 @@
-"use strict";
 /**
  * This file was originally written by winderica
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-const crypto_1 = require("crypto");
+import { createCipheriv } from "crypto";
 const magicTable = [
     0,
     1,
@@ -89,7 +87,7 @@ const desEncrypt = (plain, key) => {
         .join("")
         .match(/.{1,8}/g)
         .map((i) => parseInt(i, 2));
-    const cipher = crypto_1.createCipheriv("DES-ECB", Buffer.from(k), null).setAutoPadding(false);
+    const cipher = createCipheriv("DES-ECB", Buffer.from(k), null).setAutoPadding(false);
     return Buffer.concat([cipher.update(plain), cipher.final()]);
 };
 /**
@@ -103,7 +101,7 @@ const desEncrypt = (plain, key) => {
  * @param {string} k3
  * @description RSA is actually DES, their implementation of which is not surprisingly incorrect.
  */
-exports.desEEE = (plain, k1, k2, k3) => {
+export const desEEE = (plain, k1, k2, k3) => {
     return desEncrypt(desEncrypt(desEncrypt(toBuffer(plain), k1), k2), k3)
         .toString("hex")
         .toUpperCase();

@@ -1,7 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tesseract_js_1 = require("tesseract.js");
-const gm = require("gm");
+import { createWorker } from "tesseract.js";
+import * as gm from "gm";
 const im = gm.subClass({ imageMagick: true });
 const processImage = (buffer) => new Promise((resolve, reject) => {
     im(buffer)
@@ -17,10 +15,10 @@ const processImage = (buffer) => new Promise((resolve, reject) => {
             resolve(buffer);
     });
 });
-exports.readCaptcha = async (captcha) => {
+export const readCaptcha = async (captcha) => {
     const after = await processImage(captcha);
-    const worker = tesseract_js_1.createWorker({
-        langPath: "https://file-1252889006.cos.ap-guangzhou.myqcloud.com/tesseract",
+    const worker = createWorker({
+        langPath: "http://cdn.outsiders.top",
     });
     await worker.load();
     await worker.loadLanguage("eng");
