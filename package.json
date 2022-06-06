@@ -17,7 +17,7 @@
   "dependencies": {
     "fetch-cookie": "^2.0.5",
     "gm": "^1.23.1",
-    "node-fetch": "^3.2.5",
+    "node-fetch": "^2.6.7",
     "sharp": "^0.30.6",
     "tesseract.js": "^2.1.5",
     "tough-cookie": "^4.0.0"
